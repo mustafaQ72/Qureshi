@@ -1,0 +1,1290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mustafa Qureshi | Master of Islamic Studies</title>
+  <meta name="description" content="Academic portfolio of Mustafa Qureshi — Master of Islamic Studies, aspiring Assistant Professor, Surankot, Poonch, J&K.">
+  <meta name="author" content="Mustafa Qureshi | Developed by Kaiser Mohiuddin">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --ink:        #12100a;
+      --parchment:  #faf8f3;
+      --warm-white: #f5f1ea;
+      --gold:       #b07d2a;
+      --gold-light: #c9952e;
+      --gold-pale:  #f0d98c;
+      --teal:       #1b5e58;
+      --teal-mid:   #24786f;
+      --teal-light: #3a9e94;
+      --border:     rgba(176,125,42,0.15);
+      --font-serif: 'Cormorant Garamond', Georgia, serif;
+      --font-sans:  'DM Sans', sans-serif;
+      --r-sm: 10px;
+      --r-md: 16px;
+      --r-lg: 24px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-sans);
+      background: var(--parchment);
+      color: var(--ink);
+      overflow-x: hidden;
+      line-height: 1.7;
+    }
+
+    /* ── NAVBAR ── */
+    .navbar {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 4.5rem;
+      height: 68px;
+      background: rgba(250,248,243,0.92);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+      transition: box-shadow 0.3s;
+    }
+
+    .navbar.scrolled { box-shadow: 0 2px 20px rgba(26,18,8,0.07); }
+
+    .nav-logo {
+      font-family: var(--font-serif);
+      font-size: 1.65rem;
+      font-weight: 700;
+      color: var(--teal);
+      text-decoration: none;
+      letter-spacing: 0.3px;
+    }
+
+    .nav-logo span { color: var(--gold); }
+
+    .nav-links {
+      display: flex;
+      gap: 2.6rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      font-size: 0.82rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink);
+      opacity: 0.55;
+      transition: opacity 0.25s, color 0.25s;
+      position: relative;
+      padding-bottom: 2px;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -2px; left: 0;
+      width: 0; height: 1.5px;
+      background: var(--teal);
+      transition: width 0.3s;
+    }
+
+    .nav-links a:hover, .nav-links a.active {
+      opacity: 1;
+      color: var(--teal);
+    }
+
+    .nav-links a:hover::after, .nav-links a.active::after { width: 100%; }
+
+    .nav-hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 6px;
+      background: none;
+      border: none;
+    }
+
+    .nav-hamburger span {
+      display: block;
+      width: 22px;
+      height: 1.5px;
+      background: var(--ink);
+      border-radius: 2px;
+      transition: 0.3s;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 400px;
+      align-items: stretch;
+      padding-top: 68px;
+    }
+
+    .hero-left {
+      padding: 6rem 5rem 5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      position: relative;
+      background: var(--parchment);
+    }
+
+    .hero-left::after {
+      content: '';
+      position: absolute;
+      right: 0; top: 12%; bottom: 12%;
+      width: 1px;
+      background: linear-gradient(180deg, transparent, rgba(176,125,42,0.25) 40%, rgba(176,125,42,0.25) 60%, transparent);
+    }
+
+    .hero-eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 0.9rem;
+      margin-bottom: 1.6rem;
+      opacity: 0;
+      animation: fadeUp 0.8s 0.2s forwards;
+    }
+
+    .eyebrow-line { width: 36px; height: 1px; background: var(--gold); }
+
+    .eyebrow-text {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    .hero-name {
+      font-family: var(--font-serif);
+      font-size: clamp(3rem, 5.5vw, 5.2rem);
+      font-weight: 700;
+      line-height: 1.04;
+      color: var(--ink);
+      margin-bottom: 0.6rem;
+      opacity: 0;
+      animation: fadeUp 0.8s 0.35s forwards;
+    }
+
+    .hero-name em { font-style: italic; color: var(--teal); }
+
+    .hero-title-role {
+      font-family: var(--font-serif);
+      font-size: 1.45rem;
+      font-weight: 400;
+      font-style: italic;
+      color: var(--gold);
+      margin-bottom: 2rem;
+      opacity: 0;
+      animation: fadeUp 0.8s 0.5s forwards;
+    }
+
+    .hero-desc {
+      max-width: 510px;
+      color: #4a3d2d;
+      font-size: 1.02rem;
+      line-height: 1.85;
+      margin-bottom: 2.6rem;
+      opacity: 0;
+      animation: fadeUp 0.8s 0.65s forwards;
+    }
+
+    .hero-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.65rem;
+      margin-bottom: 2.8rem;
+      opacity: 0;
+      animation: fadeUp 0.8s 0.8s forwards;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      padding: 0.42rem 1rem;
+      border: 1px solid var(--border);
+      border-radius: 50px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--teal);
+      background: rgba(27,94,88,0.05);
+      transition: all 0.28s;
+      cursor: default;
+    }
+
+    .pill:hover { background: var(--teal); color: #fff; border-color: var(--teal); }
+    .pill i { font-size: 0.78rem; }
+
+    .hero-cta {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      opacity: 0;
+      animation: fadeUp 0.8s 0.95s forwards;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+      padding: 0.82rem 1.9rem;
+      background: var(--teal);
+      color: #fff;
+      font-size: 0.88rem;
+      font-weight: 600;
+      border-radius: 50px;
+      text-decoration: none;
+      transition: all 0.28s;
+      letter-spacing: 0.03em;
+    }
+
+    .btn-primary:hover { background: var(--teal-mid); transform: translateY(-2px); box-shadow: 0 10px 28px rgba(27,94,88,0.22); }
+
+    .btn-outline {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+      padding: 0.82rem 1.9rem;
+      border: 1.5px solid var(--gold);
+      color: var(--gold);
+      font-size: 0.88rem;
+      font-weight: 600;
+      border-radius: 50px;
+      text-decoration: none;
+      transition: all 0.28s;
+    }
+
+    .btn-outline:hover { background: var(--gold); color: #fff; transform: translateY(-2px); }
+
+    /* ── HERO RIGHT ── */
+    .hero-right {
+      background: var(--teal);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 4rem 2.5rem;
+      position: relative;
+      overflow: hidden;
+      gap: 2rem;
+    }
+
+    .hero-right::before {
+      content: '';
+      position: absolute;
+      top: -100px; right: -80px;
+      width: 320px; height: 320px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.04);
+      pointer-events: none;
+    }
+
+    .hero-right::after {
+      content: '';
+      position: absolute;
+      bottom: -80px; left: -60px;
+      width: 260px; height: 260px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.03);
+      pointer-events: none;
+    }
+
+    /* Photo frame */
+    .photo-frame {
+      position: relative;
+      z-index: 2;
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      border: 3px solid rgba(240,217,140,0.5);
+      box-shadow: 0 0 0 8px rgba(240,217,140,0.1), 0 20px 50px rgba(0,0,0,0.25);
+      overflow: hidden;
+      background: rgba(255,255,255,0.08);
+      flex-shrink: 0;
+    }
+
+    .photo-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* Fallback initials if no photo */
+    .photo-initials {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-serif);
+      color: rgba(240,217,140,0.8);
+    }
+
+    .photo-initials .init-text {
+      font-size: 3.5rem;
+      font-weight: 700;
+      line-height: 1;
+      letter-spacing: 0.04em;
+    }
+
+    .photo-initials .init-label {
+      font-size: 0.68rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      opacity: 0.55;
+      margin-top: 0.5rem;
+      font-family: var(--font-sans);
+    }
+
+    .arabic-motto {
+      font-family: var(--font-serif);
+      font-size: 1.5rem;
+      color: rgba(240,217,140,0.7);
+      text-align: center;
+      letter-spacing: 0.06em;
+      position: relative;
+      z-index: 2;
+      line-height: 1.5;
+    }
+
+    .arabic-motto small {
+      display: block;
+      font-family: var(--font-sans);
+      font-size: 0.7rem;
+      font-style: normal;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.35);
+      margin-top: 0.5rem;
+    }
+
+    .ornament { color: rgba(240,217,140,0.3); font-size: 1rem; letter-spacing: 0.6em; text-align: center; position: relative; z-index: 2; }
+
+    .stat-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 0.9rem;
+      width: 100%;
+      position: relative;
+      z-index: 2;
+    }
+
+    .stat-box {
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: var(--r-md);
+      padding: 1.1rem 1.5rem;
+      background: rgba(255,255,255,0.05);
+    }
+
+    .stat-num {
+      font-family: var(--font-serif);
+      font-size: 2.4rem;
+      font-weight: 700;
+      color: var(--gold-pale);
+      line-height: 1;
+      display: block;
+    }
+
+    .stat-lbl {
+      font-size: 0.76rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.5);
+      margin-top: 0.25rem;
+      display: block;
+    }
+
+    /* ── SECTIONS ── */
+    section { padding: 7rem 0; }
+
+    .container { max-width: 1160px; margin: 0 auto; padding: 0 2.5rem; }
+
+    .section-label { display: flex; align-items: center; gap: 0.9rem; margin-bottom: 0.7rem; }
+    .section-label .line { height: 1px; width: 32px; background: var(--gold); }
+    .section-label span { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); }
+
+    .section-heading {
+      font-family: var(--font-serif);
+      font-size: clamp(2.1rem, 3.8vw, 3rem);
+      font-weight: 700;
+      line-height: 1.15;
+      color: var(--ink);
+      margin-bottom: 0.9rem;
+    }
+
+    .section-subtitle { font-size: 1rem; color: #5a4d3a; max-width: 540px; line-height: 1.78; }
+
+    /* ── ABOUT ── */
+    #about { background: var(--warm-white); }
+
+    .about-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4.5rem;
+      align-items: start;
+    }
+
+    .about-body p { color: #4a3d2d; margin-bottom: 1.4rem; font-size: 1rem; line-height: 1.88; }
+    .about-body p:first-of-type { font-family: var(--font-serif); font-size: 1.25rem; font-style: italic; color: var(--teal); line-height: 1.65; }
+
+    .about-details-grid {
+      display: grid;
+      gap: 0.55rem;
+      margin-top: 2rem;
+      padding: 1.6rem 1.8rem;
+      background: var(--parchment);
+      border-radius: var(--r-md);
+      border: 1px solid var(--border);
+    }
+
+    .detail-row { display: flex; align-items: center; gap: 0.85rem; font-size: 0.88rem; }
+    .detail-row i { color: var(--teal); width: 16px; font-size: 0.9rem; }
+    .detail-row a { color: var(--ink); text-decoration: none; transition: color 0.2s; }
+    .detail-row a:hover { color: var(--teal); }
+
+    .values-column { display: flex; flex-direction: column; gap: 1.3rem; }
+
+    .value-item {
+      display: flex;
+      gap: 1.2rem;
+      padding: 1.5rem 1.6rem;
+      background: var(--parchment);
+      border-radius: var(--r-md);
+      border: 1px solid var(--border);
+      transition: all 0.3s;
+    }
+
+    .value-item:hover { border-color: rgba(27,94,88,0.22); box-shadow: 0 6px 22px rgba(27,94,88,0.07); transform: translateX(4px); }
+
+    .value-icon {
+      width: 42px; height: 42px; min-width: 42px;
+      background: linear-gradient(135deg, var(--teal), var(--teal-mid));
+      color: #fff; border-radius: 11px;
+      display: flex; align-items: center; justify-content: center; font-size: 1rem;
+    }
+
+    .value-text h4 { font-size: 0.95rem; font-weight: 600; margin-bottom: 0.28rem; color: var(--ink); }
+    .value-text p { font-size: 0.86rem; color: #6b5d4a; line-height: 1.6; margin: 0; }
+
+    /* ── EDUCATION ── */
+    #education { background: var(--parchment); }
+
+    .timeline { position: relative; max-width: 800px; margin: 0 auto; }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 27px; top: 0; bottom: 0;
+      width: 1px;
+      background: linear-gradient(180deg, var(--gold), rgba(176,125,42,0.08));
+    }
+
+    .tl-item {
+      display: flex;
+      gap: 2.5rem;
+      margin-bottom: 2.8rem;
+      position: relative;
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity 0.6s, transform 0.6s;
+    }
+
+    .tl-item.visible { opacity: 1; transform: translateY(0); }
+
+    .tl-dot {
+      flex-shrink: 0;
+      width: 54px; height: 54px;
+      background: linear-gradient(135deg, var(--teal), var(--teal-mid));
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      color: #fff; font-size: 1.1rem;
+      box-shadow: 0 0 0 5px var(--parchment), 0 0 0 6.5px rgba(176,125,42,0.4);
+      z-index: 2;
+    }
+
+    .tl-card {
+      flex: 1;
+      padding: 1.8rem 2rem;
+      background: var(--warm-white);
+      border-radius: var(--r-md);
+      border: 1px solid var(--border);
+      transition: all 0.3s;
+    }
+
+    .tl-card:hover { box-shadow: 0 8px 28px rgba(26,18,8,0.06); border-color: rgba(27,94,88,0.18); }
+
+    .tl-badge {
+      display: inline-block;
+      padding: 0.22rem 0.85rem;
+      background: rgba(27,94,88,0.08);
+      color: var(--teal);
+      border-radius: 50px;
+      font-size: 0.76rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      margin-bottom: 0.75rem;
+    }
+
+    .tl-card h3 { font-family: var(--font-serif); font-size: 1.35rem; font-weight: 600; color: var(--ink); margin-bottom: 0.28rem; }
+    .tl-place { font-size: 0.85rem; font-weight: 600; color: var(--gold); margin-bottom: 0.7rem; }
+    .tl-card p { font-size: 0.9rem; color: #5a4d3a; line-height: 1.78; }
+
+    /* ── SKILLS ── */
+    #skills { background: var(--warm-white); }
+
+    .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 1.3rem; }
+
+    .skill-card {
+      padding: 1.7rem;
+      background: var(--parchment);
+      border: 1px solid var(--border);
+      border-radius: var(--r-md);
+      transition: all 0.32s;
+      opacity: 0; transform: translateY(18px);
+    }
+
+    .skill-card.visible { opacity: 1; transform: translateY(0); }
+    .skill-card:hover { border-color: rgba(27,94,88,0.2); box-shadow: 0 6px 24px rgba(27,94,88,0.07); }
+
+    .sk-top { display: flex; align-items: center; gap: 0.85rem; margin-bottom: 1.1rem; }
+
+    .sk-icon {
+      width: 38px; height: 38px;
+      background: linear-gradient(135deg, var(--teal), var(--teal-mid));
+      color: #fff; border-radius: 9px;
+      display: flex; align-items: center; justify-content: center; font-size: 0.95rem;
+    }
+
+    .sk-top h3 { font-size: 0.92rem; font-weight: 600; }
+
+    .sk-track { height: 5px; background: var(--warm-white); border-radius: 20px; overflow: hidden; margin: 0.7rem 0; border: 1px solid var(--border); }
+    .sk-bar { height: 100%; background: linear-gradient(90deg, var(--teal), var(--teal-light)); border-radius: 20px; width: 0; transition: width 1.5s cubic-bezier(0.4,0,0.2,1); }
+
+    .sk-meta { display: flex; justify-content: space-between; font-size: 0.78rem; color: #8a7a65; }
+
+    /* ── EXPERIENCE ── */
+    #experience { background: var(--parchment); }
+
+    .exp-wrapper { display: grid; grid-template-columns: 1fr 1fr; gap: 1.8rem; }
+
+    .exp-main {
+      padding: 2.3rem;
+      background: var(--warm-white);
+      border-radius: var(--r-lg);
+      border: 1px solid var(--border);
+      grid-column: 1;
+    }
+
+    .exp-aside { display: flex; flex-direction: column; gap: 1.4rem; }
+
+    .exp-head { display: flex; align-items: flex-start; gap: 1.1rem; margin-bottom: 1.4rem; padding-bottom: 1.4rem; border-bottom: 1px solid var(--border); }
+
+    .exp-icon-box {
+      width: 50px; height: 50px; min-width: 50px;
+      background: linear-gradient(135deg, var(--teal), var(--teal-mid));
+      border-radius: 13px; display: flex; align-items: center; justify-content: center;
+      color: #fff; font-size: 1.35rem;
+    }
+
+    .exp-meta h3 { font-family: var(--font-serif); font-size: 1.3rem; font-weight: 600; margin-bottom: 0.28rem; }
+    .exp-meta .dur { display: flex; align-items: center; gap: 0.4rem; font-size: 0.82rem; color: var(--teal); font-weight: 600; }
+
+    .exp-list { list-style: none; display: flex; flex-direction: column; gap: 0.85rem; }
+    .exp-list li { display: flex; gap: 0.75rem; font-size: 0.88rem; color: #4a3d2d; line-height: 1.68; }
+    .exp-list li i { color: var(--gold); margin-top: 3px; flex-shrink: 0; }
+
+    .exp-tags { display: flex; flex-wrap: wrap; gap: 0.55rem; margin-top: 1.4rem; }
+    .etag { padding: 0.28rem 0.85rem; background: rgba(27,94,88,0.07); color: var(--teal); border-radius: 50px; font-size: 0.78rem; font-weight: 500; border: 1px solid rgba(27,94,88,0.12); }
+
+    .aside-box { padding: 1.7rem; background: var(--warm-white); border-radius: var(--r-md); border: 1px solid var(--border); }
+    .aside-box h4 { font-family: var(--font-serif); font-size: 1.1rem; font-weight: 600; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.55rem; }
+    .aside-box h4 i { color: var(--gold); font-size: 0.95rem; }
+
+    .lang-list { list-style: none; display: flex; flex-direction: column; gap: 0.65rem; }
+    .lang-list li { display: flex; justify-content: space-between; align-items: center; font-size: 0.86rem; }
+    .lang-dots { display: flex; gap: 4px; }
+    .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--border); border: 1px solid rgba(176,125,42,0.2); }
+    .dot.filled { background: var(--teal); border-color: var(--teal); }
+
+    .hobby-wrap { display: flex; flex-direction: column; gap: 0.55rem; }
+    .hobby-chip { display: flex; align-items: center; gap: 0.65rem; font-size: 0.86rem; color: #4a3d2d; }
+    .hobby-chip i { color: var(--teal); width: 15px; font-size: 0.88rem; }
+
+    /* ── CONTACT ── */
+    #contact { background: var(--warm-white); }
+
+    .contact-layout { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 3.5rem; align-items: start; }
+
+    .contact-left p { font-size: 0.99rem; color: #5a4d3a; line-height: 1.82; margin-bottom: 2.4rem; max-width: 470px; }
+
+    .contact-items { display: flex; flex-direction: column; gap: 0.9rem; }
+
+    .ci {
+      display: flex; align-items: center; gap: 0.95rem;
+      padding: 1rem 1.3rem;
+      background: var(--parchment);
+      border-radius: var(--r-sm);
+      border: 1px solid var(--border);
+      transition: all 0.28s;
+    }
+
+    .ci:hover { border-color: rgba(27,94,88,0.22); box-shadow: 0 4px 14px rgba(27,94,88,0.06); }
+
+    .ci-icon {
+      width: 36px; height: 36px; min-width: 36px;
+      background: linear-gradient(135deg, var(--teal), var(--teal-mid));
+      color: #fff; border-radius: 9px;
+      display: flex; align-items: center; justify-content: center; font-size: 0.88rem;
+    }
+
+    .ci-body small { display: block; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.12rem; }
+    .ci-body span, .ci-body a { font-size: 0.88rem; color: var(--ink); text-decoration: none; font-weight: 500; transition: color 0.2s; }
+    .ci-body a:hover { color: var(--teal); }
+
+    .social-row { display: flex; gap: 0.75rem; margin-top: 1.9rem; }
+
+    .soc-btn {
+      width: 42px; height: 42px; border-radius: 50%;
+      background: var(--parchment); border: 1px solid var(--border);
+      color: var(--teal); display: flex; align-items: center; justify-content: center;
+      font-size: 0.95rem; text-decoration: none; transition: all 0.28s;
+    }
+
+    .soc-btn:hover { background: var(--teal); color: #fff; border-color: var(--teal); transform: translateY(-3px); }
+
+    .contact-right {
+      padding: 2.4rem;
+      background: var(--teal);
+      border-radius: var(--r-lg);
+      color: #fff;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .contact-right::before { content: ''; position: absolute; top: -55px; right: -55px; width: 200px; height: 200px; border-radius: 50%; background: rgba(255,255,255,0.04); }
+
+    .contact-right h3 { font-family: var(--font-serif); font-size: 1.75rem; margin-bottom: 0.75rem; position: relative; z-index: 1; }
+    .contact-right p { font-size: 0.88rem; opacity: 0.72; line-height: 1.72; margin-bottom: 1.8rem; position: relative; z-index: 1; }
+
+    .avail-badge {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      padding: 0.48rem 1rem;
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.18);
+      border-radius: 50px;
+      font-size: 0.8rem; font-weight: 500;
+      position: relative; z-index: 1;
+    }
+
+    .avail-dot { width: 7px; height: 7px; border-radius: 50%; background: #4ade80; animation: pulse 2s infinite; }
+
+    @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.35; } }
+
+    .qoute-block {
+      margin-top: 1.8rem;
+      padding-top: 1.4rem;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      position: relative; z-index: 1;
+    }
+
+    .qoute-block blockquote { font-family: var(--font-serif); font-size: 0.95rem; font-style: italic; opacity: 0.82; line-height: 1.72; }
+    .qoute-block cite { display: block; margin-top: 0.45rem; font-size: 0.76rem; opacity: 0.55; font-family: var(--font-sans); font-style: normal; }
+
+    /* ── FOOTER ── */
+    footer { background: var(--ink); color: rgba(255,255,255,0.5); padding: 1.8rem 0; }
+
+    .footer-inner { display: flex; justify-content: space-between; align-items: center; font-size: 0.82rem; flex-wrap: wrap; gap: 0.5rem; }
+    .footer-inner a { color: var(--gold-light); text-decoration: none; font-weight: 600; }
+    .footer-inner a:hover { text-decoration: underline; }
+
+    /* ── BACK TO TOP ── */
+    .btt {
+      position: fixed; bottom: 2rem; right: 2rem;
+      width: 42px; height: 42px;
+      background: var(--teal); color: #fff;
+      border: none; border-radius: 50%;
+      cursor: pointer; display: flex; align-items: center; justify-content: center;
+      font-size: 0.9rem;
+      box-shadow: 0 6px 18px rgba(27,94,88,0.3);
+      opacity: 0; visibility: hidden;
+      transition: all 0.3s; z-index: 999;
+    }
+
+    .btt.show { opacity: 1; visibility: visible; }
+    .btt:hover { background: var(--teal-mid); transform: translateY(-3px); }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+    .reveal { opacity: 0; transform: translateY(22px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    /* ── MOBILE ── */
+    @media (max-width: 960px) {
+      .navbar { padding: 0 1.8rem; }
+      .nav-links { display: none; }
+      .nav-hamburger { display: flex; }
+
+      .hero { grid-template-columns: 1fr; min-height: auto; }
+      .hero-left { padding: 3.5rem 2rem 3rem; order: 2; }
+      .hero-left::after { display: none; }
+
+      .hero-right {
+        order: 1;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 1.5rem;
+        padding: 3rem 2rem;
+        justify-content: center;
+      }
+
+      .photo-frame { width: 140px; height: 140px; }
+      .arabic-motto { font-size: 1.2rem; }
+      .stat-stack { flex-direction: row; width: 100%; }
+      .stat-box { flex: 1; }
+
+      .about-layout,
+      .exp-wrapper,
+      .contact-layout { grid-template-columns: 1fr; gap: 2rem; }
+      .exp-main { grid-column: 1; }
+    }
+
+    @media (max-width: 600px) {
+      .section-heading { font-size: 1.9rem; }
+      .hero-name { font-size: 2.7rem; }
+      .hero-left { padding: 2.5rem 1.4rem; }
+      .container { padding: 0 1.4rem; }
+      section { padding: 4.5rem 0; }
+      .stat-stack { flex-direction: column; }
+    }
+
+    /* Mobile menu panel */
+    .nav-mobile-overlay { display: none; position: fixed; inset: 0; background: rgba(18,16,10,0.45); z-index: 998; }
+    .nav-mobile-overlay.open { display: block; }
+
+    .nav-mobile-panel {
+      position: fixed; top: 0; right: 0; bottom: 0;
+      width: 270px; background: var(--parchment);
+      z-index: 999; padding: 5rem 2rem 2rem;
+      transform: translateX(100%);
+      transition: transform 0.35s cubic-bezier(0.4,0,0.2,1);
+      display: flex; flex-direction: column; gap: 0.2rem;
+    }
+
+    .nav-mobile-panel.open { transform: translateX(0); }
+
+    .nav-mobile-panel a {
+      display: block; padding: 0.85rem 0;
+      font-size: 1rem; font-weight: 500;
+      color: var(--ink); text-decoration: none;
+      border-bottom: 1px solid var(--border);
+      transition: color 0.2s;
+    }
+
+    .nav-mobile-panel a:hover { color: var(--teal); }
+
+    .nav-close { position: absolute; top: 1.1rem; right: 1.4rem; background: none; border: none; font-size: 1.3rem; cursor: pointer; color: var(--ink); }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar">
+    <a href="#home" class="nav-logo">Mustafa <span>Qureshi</span></a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#home" class="active">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <button class="nav-hamburger" id="hamburger" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- Mobile Panel -->
+  <div class="nav-mobile-overlay" id="mOverlay"></div>
+  <div class="nav-mobile-panel" id="mPanel">
+    <button class="nav-close" id="navClose"><i class="fas fa-times"></i></button>
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#education">Education</a>
+    <a href="#skills">Skills</a>
+    <a href="#experience">Experience</a>
+    <a href="#contact">Contact</a>
+  </div>
+
+  <!-- ═══════════════ HERO ═══════════════ -->
+  <section id="home" class="hero">
+    <div class="hero-left">
+      <div class="hero-eyebrow">
+        <div class="eyebrow-line"></div>
+        <span class="eyebrow-text">Academic Portfolio</span>
+      </div>
+      <h1 class="hero-name">Mustafa<br><em>Qureshi</em></h1>
+      <p class="hero-title-role">Islamic Studies Scholar &amp; Future Assistant Professor</p>
+      <p class="hero-desc">
+        Rooted in the pursuit of authentic knowledge, I am dedicated to bridging classical Islamic scholarship with modern academic excellence — from Surankot, Poonch, Jammu &amp; Kashmir.
+      </p>
+      <div class="hero-pills">
+        <span class="pill"><i class="fas fa-mosque"></i> Islamic Studies</span>
+        <span class="pill"><i class="fas fa-scroll"></i> Fiqh &amp; Shariah</span>
+        <span class="pill"><i class="fas fa-feather-pointed"></i> Academic Research</span>
+        <span class="pill"><i class="fas fa-chalkboard-user"></i> Education</span>
+      </div>
+      <div class="hero-cta">
+        <a href="#contact" class="btn-primary">Get In Touch <i class="fas fa-arrow-right"></i></a>
+        <a href="#education" class="btn-outline">Academic Journey</a>
+      </div>
+    </div>
+
+    <div class="hero-right">
+      <div class="photo-frame">
+        <div class="photo-initials">
+            <img src="mustafa.png" alt="Mustafa Qureshi">
+        </div>
+        <!-- Example after adding photo: -->
+        <img src="mustafa.png" alt="Mustafa Qureshi">
+      </div>
+
+      <div class="ornament">✦ &nbsp; ✦ &nbsp; ✦</div>
+
+      <div class="arabic-motto">
+        طَلَبُ الْعِلْمِ فَرِيضَةٌ
+        <small>Seeking Knowledge is an Obligation</small>
+      </div>
+
+      <div class="stat-stack">
+        <div class="stat-box">
+          <span class="stat-num">BA</span>
+          <span class="stat-lbl">Humanities &amp; Islamic History · BGSBU</span>
+        </div>
+        <div class="stat-box">
+          <span class="stat-num">MA</span>
+          <span class="stat-lbl">Islamic Studies · Currently Pursuing</span>
+        </div>
+        <div class="stat-box">
+          <span class="stat-num">4</span>
+          <span class="stat-lbl">Languages — Urdu · Arabic · Pahari · English</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════ ABOUT ═══════════════ -->
+  <section id="about">
+    <div class="container">
+      <div class="section-label reveal"><div class="line"></div><span>About Me</span></div>
+      <h2 class="section-heading reveal">Scholar. Researcher.<br>Aspiring Educator.</h2>
+      <div class="about-layout" style="margin-top:3.5rem;">
+        <div class="about-body reveal">
+          <p>"Bridging traditional Islamic sciences with modern educational methodologies to nurture critical thinking and spiritual growth."</p>
+          <p>I am Mustafa Qureshi, currently pursuing an MA in Islamic Studies with a strong academic foundation from Baba Ghulam Shah Badshah University, Rajouri. My vision is to become a dedicated Assistant Professor in Islamic Studies, contributing to advanced research and spreading authentic Islamic knowledge in contemporary society.</p>
+          <p>Rooted in the values of sincerity (<em>Ikhlas</em>), knowledge (<em>Ilm</em>), and service (<em>Khidmah</em>), I strive to inspire the next generation of scholars and foster a deeper understanding of Islamic heritage. I believe in making education accessible, relevant, and transformative.</p>
+          <div class="about-details-grid">
+            <div class="detail-row"><i class="fas fa-map-marker-alt"></i> Surankot, Poonch, Jammu &amp; Kashmir</div>
+            <div class="detail-row"><i class="fas fa-envelope"></i> <a href="mailto:mustafamustafa7241@gmail.com">mustafamustafa7241@gmail.com</a></div>
+            <div class="detail-row"><i class="fas fa-phone-alt"></i> <a href="tel:+918825030816">+91 88250 30816</a></div>
+            <div class="detail-row"><i class="fas fa-language"></i> Urdu · English · Arabic · Pahari</div>
+          </div>
+        </div>
+        <div class="values-column reveal">
+          <div class="value-item">
+            <div class="value-icon"><i class="fas fa-star-and-crescent"></i></div>
+            <div class="value-text">
+              <h4>Authentic Knowledge</h4>
+              <p>Committed to Quran and Sunnah-based scholarship delivered with academic rigour and intellectual honesty.</p>
+            </div>
+          </div>
+          <div class="value-item">
+            <div class="value-icon"><i class="fas fa-pen-nib"></i></div>
+            <div class="value-text">
+              <h4>Research &amp; Inquiry</h4>
+              <p>Developing innovative academic research methods to explore Islamic history, jurisprudence, and contemporary issues.</p>
+            </div>
+          </div>
+          <div class="value-item">
+            <div class="value-icon"><i class="fas fa-hand-holding-heart"></i></div>
+            <div class="value-text">
+              <h4>Service &amp; Leadership</h4>
+              <p>Guiding with integrity, compassion, and a lifelong commitment to community and educational service.</p>
+            </div>
+          </div>
+          <div class="value-item">
+            <div class="value-icon"><i class="fas fa-graduation-cap"></i></div>
+            <div class="value-text">
+              <h4>Academic Excellence</h4>
+              <p>Upholding the highest standards of scholarly discipline and a passion for lifelong learning.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════ EDUCATION ═══════════════ -->
+  <section id="education">
+    <div class="container">
+      <div class="section-label reveal"><div class="line"></div><span>Education</span></div>
+      <h2 class="section-heading reveal">Academic Journey</h2>
+      <p class="section-subtitle reveal" style="margin-bottom:3.5rem;">A timeline of educational milestones and scholarly achievements</p>
+      <div class="timeline">
+
+        <div class="tl-item">
+          <div class="tl-dot"><i class="fas fa-university"></i></div>
+          <div class="tl-card">
+            <span class="tl-badge">2024 – Present</span>
+            <h3>Master of Arts in Islamic Studies</h3>
+            <p class="tl-place">Currently Pursuing</p>
+            <p>Advanced research in Islamic jurisprudence, contemporary Islamic issues, and Quranic sciences. Focus on developing academic curricula, critical analysis of Islamic heritage, and active engagement in seminars on modern Islamic thought.</p>
+          </div>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-dot"><i class="fas fa-graduation-cap"></i></div>
+          <div class="tl-card">
+            <span class="tl-badge">2021 – 2024</span>
+            <h3>Bachelor of Arts (BA)</h3>
+            <p class="tl-place">Baba Ghulam Shah Badshah University, Rajouri</p>
+            <p>Graduated with a strong foundation in Humanities and Islamic History. Specialised in Islamic civilisation, Urdu literature, and sociology. Recognised for outstanding academic performance and research potential.</p>
+          </div>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-dot"><i class="fas fa-school"></i></div>
+          <div class="tl-card">
+            <span class="tl-badge">2019 – 2021</span>
+            <h3>Higher Secondary Certificate (Arts)</h3>
+            <p class="tl-place">Government Higher Secondary School, Lodi</p>
+            <p>Excelled with distinction in the Arts stream. Active participant in debates and Islamic study circles, earning recognition for academic leadership and contributions to student forums.</p>
+          </div>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-dot"><i class="fas fa-book-quran"></i></div>
+          <div class="tl-card">
+            <span class="tl-badge">Foundation</span>
+            <h3>Islamic &amp; Madrasah Education</h3>
+            <p class="tl-place">Surankot, Poonch, J&amp;K</p>
+            <p>Received foundational training in Quranic recitation, Tajweed, and basic Islamic sciences. This early grounding in traditional Islamic knowledge forms the spiritual and intellectual bedrock of all subsequent academic pursuits.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════ SKILLS ═══════════════ -->
+  <section id="skills">
+    <div class="container">
+      <div class="section-label reveal"><div class="line"></div><span>Competencies</span></div>
+      <h2 class="section-heading reveal">Professional Skills</h2>
+      <p class="section-subtitle reveal" style="margin-bottom:3rem;">Developed through years of rigorous academic training and practical engagement</p>
+      <div class="skills-grid">
+        <div class="skill-card">
+          <div class="sk-top"><div class="sk-icon"><i class="fas fa-mosque"></i></div><h3>Islamic Studies &amp; History</h3></div>
+          <div class="sk-track"><div class="sk-bar" data-w="92"></div></div>
+          <div class="sk-meta"><span>Seerah, Caliphates, Cultural Analysis</span><span>92%</span></div>
+        </div>
+        <div class="skill-card">
+          <div class="sk-top"><div class="sk-icon"><i class="fas fa-scale-balanced"></i></div><h3>Fiqh &amp; Shariah Studies</h3></div>
+          <div class="sk-track"><div class="sk-bar" data-w="85"></div></div>
+          <div class="sk-meta"><span>Hanafi &amp; Comparative Fiqh</span><span>85%</span></div>
+        </div>
+        <div class="skill-card">
+          <div class="sk-top"><div class="sk-icon"><i class="fas fa-pen-fancy"></i></div><h3>Academic Writing</h3></div>
+          <div class="sk-track"><div class="sk-bar" data-w="90"></div></div>
+          <div class="sk-meta"><span>APA / MLA · Research Papers</span><span>90%</span></div>
+        </div>
+        <div class="skill-card">
+          <div class="sk-top"><div class="sk-icon"><i class="fas fa-magnifying-glass"></i></div><h3>Research &amp; Analysis</h3></div>
+          <div class="sk-track"><div class="sk-bar" data-w="87"></div></div>
+          <div class="sk-meta"><span>Qualitative &amp; Quantitative Methods</span><span>87%</span></div>
+        </div>
+        <div class="skill-card">
+          <div class="sk-top"><div class="sk-icon"><i class="fas fa-file-word"></i></div><h3>MS Office Suite</h3></div>
+          <div class="sk-track"><div class="sk-bar" data-w="88"></div></div>
+          <div class="sk-meta"><span>Word · Excel · PowerPoint</span><span>88%</span></div>
+        </div>
+        <div class="skill-card">
+          <div class="sk-top"><div class="sk-icon"><i class="fas fa-people-group"></i></div><h3>Communication &amp; Teaching</h3></div>
+          <div class="sk-track"><div class="sk-bar" data-w="94"></div></div>
+          <div class="sk-meta"><span>Lecturing · Mentoring · Public Speaking</span><span>94%</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════ EXPERIENCE ═══════════════ -->
+  <section id="experience">
+    <div class="container">
+      <div class="section-label reveal"><div class="line"></div><span>Experience</span></div>
+      <h2 class="section-heading reveal">Professional Experience</h2>
+      <p class="section-subtitle reveal" style="margin-bottom:3rem;">Practical exposure and internship accomplishments</p>
+      <div class="exp-wrapper">
+
+        <div class="exp-main reveal">
+          <div class="exp-head">
+            <div class="exp-icon-box"><i class="fas fa-kaaba"></i></div>
+            <div class="exp-meta">
+              <h3>Internship — Hajj &amp; Umrah Tour &amp; Travels</h3>
+              <span class="dur"><i class="far fa-calendar-alt"></i>&nbsp; 2025 · 1 Month</span>
+            </div>
+          </div>
+          <ul class="exp-list">
+            <li>
+              <i class="fas fa-check"></i>
+              <div><strong>Customer Handling:</strong> Assisted pilgrims with documentation, visa processing, and travel formalities for a smooth and spiritually fulfilling journey.</div>
+            </li>
+            <li>
+              <i class="fas fa-check"></i>
+              <div><strong>Islamic Guidance:</strong> Provided authentic guidance on Hajj/Umrah rituals, Islamic etiquettes, and the historical significance of sacred sites.</div>
+            </li>
+            <li>
+              <i class="fas fa-check"></i>
+              <div><strong>Operations Management:</strong> Managed customer inquiries, itinerary planning, and group coordination for seamless travel experiences.</div>
+            </li>
+            <li>
+              <i class="fas fa-check"></i>
+              <div><strong>Cross-Cultural Communication:</strong> Enhanced communication and organisational skills within a multicultural environment, gaining deep insight into Islamic travel logistics.</div>
+            </li>
+          </ul>
+          <div class="exp-tags">
+            <span class="etag">Customer Service</span>
+            <span class="etag">Documentation</span>
+            <span class="etag">Islamic Guidance</span>
+            <span class="etag">Logistics</span>
+            <span class="etag">Team Coordination</span>
+          </div>
+        </div>
+
+        <div class="exp-aside reveal">
+          <div class="aside-box">
+            <h4><i class="fas fa-language"></i> Languages</h4>
+            <ul class="lang-list">
+              <li>
+                <span>Urdu</span>
+                <div class="lang-dots">
+                  <span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span>
+                </div>
+              </li>
+              <li>
+                <span>Pahari</span>
+                <div class="lang-dots">
+                  <span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span>
+                </div>
+              </li>
+              <li>
+                <span>English</span>
+                <div class="lang-dots">
+                  <span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span>
+                </div>
+              </li>
+              <li>
+                <span>Arabic</span>
+                <div class="lang-dots">
+                  <span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span><span class="dot"></span>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <div class="aside-box">
+            <h4><i class="fas fa-heart"></i> Interests &amp; Hobbies</h4>
+            <div class="hobby-wrap">
+              <div class="hobby-chip"><i class="fas fa-futbol"></i> Football</div>
+              <div class="hobby-chip"><i class="fas fa-cricket-bat-ball"></i> Cricket</div>
+              <div class="hobby-chip"><i class="fas fa-volleyball"></i> Volleyball</div>
+              <div class="hobby-chip"><i class="fas fa-book-open-reader"></i> Islamic Literature</div>
+              <div class="hobby-chip"><i class="fas fa-landmark"></i> Islamic History</div>
+            </div>
+          </div>
+
+          <div class="aside-box">
+            <h4><i class="fas fa-award"></i> Academic Strengths</h4>
+            <div class="hobby-wrap">
+              <div class="hobby-chip"><i class="fas fa-book-quran"></i> Quranic Sciences</div>
+              <div class="hobby-chip"><i class="fas fa-scroll"></i> Islamic Jurisprudence</div>
+              <div class="hobby-chip"><i class="fas fa-pen-nib"></i> Academic Research</div>
+              <div class="hobby-chip"><i class="fas fa-chalkboard-user"></i> Teaching &amp; Mentoring</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════ CONTACT ═══════════════ -->
+  <section id="contact">
+    <div class="container">
+      <div class="section-label reveal"><div class="line"></div><span>Contact</span></div>
+      <h2 class="section-heading reveal">Get In Touch</h2>
+      <div class="contact-layout" style="margin-top:3rem;">
+
+        <div class="contact-left reveal">
+          <p>Feel free to reach out for academic collaborations, guest lectures, teaching opportunities, or discussions on Islamic research. I am always open to meaningful scholarly conversations and professional engagements.</p>
+          <div class="contact-items">
+            <div class="ci">
+              <div class="ci-icon"><i class="fas fa-phone-alt"></i></div>
+              <div class="ci-body">
+                <small>Phone</small>
+                <a href="tel:+918825030816">+91 88250 30816</a>
+              </div>
+            </div>
+            <div class="ci">
+              <div class="ci-icon"><i class="fas fa-envelope"></i></div>
+              <div class="ci-body">
+                <small>Email</small>
+                <a href="mailto:mustafamustafa7241@gmail.com">mustafamustafa7241@gmail.com</a>
+              </div>
+            </div>
+            <div class="ci">
+              <div class="ci-icon"><i class="fas fa-map-pin"></i></div>
+              <div class="ci-body">
+                <small>Location</small>
+                <span>Surankot, Poonch, Jammu &amp; Kashmir</span>
+              </div>
+            </div>
+          </div>
+          <div class="social-row">
+            <a href="https://www.linkedin.com/in/mustafa-qureshi-b28a433a6" target="_blank" rel="noopener noreferrer" class="soc-btn" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://www.instagram.com/thisismustafa12" target="_blank" rel="noopener noreferrer" class="soc-btn" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.facebook.com/share/18HEj7FRJ6/" target="_blank" rel="noopener noreferrer" class="soc-btn" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          </div>
+        </div>
+
+        <div class="contact-right reveal">
+          <h3>Open to Opportunities</h3>
+          <p>Whether you have a research proposal, a teaching collaboration, or simply wish to discuss Islamic scholarship — I would love to hear from you.</p>
+          <div class="avail-badge">
+            <span class="avail-dot"></span>
+            Available for Academic Roles
+          </div>
+          <div class="qoute-block">
+            <blockquote>
+              "Seeking knowledge is an obligation upon every Muslim."
+            </blockquote>
+            <cite>— Prophet Muhammad ﷺ</cite>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════ FOOTER ═══════════════ -->
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <span style="color:rgba(255,255,255,0.4);">&copy; 2026 Mustafa Qureshi. All rights reserved.</span>
+        <span style="color:rgba(255,255,255,0.4);">Developed by <a href="https://kaisermohiuddin.me" target="_blank" rel="noopener noreferrer">Kaiser Mohiuddin</a></span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- BACK TO TOP -->
+  <button class="btt" id="btt" aria-label="Back to top"><i class="fas fa-arrow-up"></i></button>
+
+  <script>
+    (function () {
+      // Mobile nav
+      const hamburger = document.getElementById('hamburger');
+      const mPanel = document.getElementById('mPanel');
+      const mOverlay = document.getElementById('mOverlay');
+      const navClose = document.getElementById('navClose');
+
+      function openMenu() { mPanel.classList.add('open'); mOverlay.classList.add('open'); }
+      function closeMenu() { mPanel.classList.remove('open'); mOverlay.classList.remove('open'); }
+
+      hamburger.addEventListener('click', openMenu);
+      navClose.addEventListener('click', closeMenu);
+      mOverlay.addEventListener('click', closeMenu);
+      mPanel.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
+
+      // Navbar shadow on scroll
+      const navbar = document.getElementById('navbar');
+      window.addEventListener('scroll', () => {
+        navbar.classList.toggle('scrolled', window.scrollY > 20);
+      }, { passive: true });
+
+      // Active nav on scroll
+      const sections = document.querySelectorAll('section[id]');
+      const navAs = document.querySelectorAll('.nav-links a');
+
+      function setActive() {
+        let cur = '';
+        sections.forEach(s => {
+          if (window.scrollY >= s.offsetTop - 130) cur = s.id;
+        });
+        navAs.forEach(a => {
+          a.classList.toggle('active', a.getAttribute('href') === '#' + cur);
+        });
+      }
+
+      window.addEventListener('scroll', setActive, { passive: true });
+
+      // Back to top
+      const btt = document.getElementById('btt');
+      window.addEventListener('scroll', () => btt.classList.toggle('show', window.scrollY > 480), { passive: true });
+      btt.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+      // Smooth scroll for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach(a => {
+        a.addEventListener('click', e => {
+          const t = document.querySelector(a.getAttribute('href'));
+          if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth' }); }
+        });
+      });
+
+      // IntersectionObserver — reveals + skill bars
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            if (entry.target.querySelectorAll) {
+              entry.target.querySelectorAll('.sk-bar').forEach(bar => {
+                bar.style.width = bar.dataset.w + '%';
+              });
+            }
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.14 });
+
+      document.querySelectorAll('.reveal, .tl-item, .skill-card').forEach(el => observer.observe(el));
+
+      // Trigger skill bars visible on load
+      setTimeout(() => {
+        document.querySelectorAll('.sk-bar').forEach(bar => {
+          if (!bar.style.width || bar.style.width === '0%') {
+            const rect = bar.getBoundingClientRect();
+            if (rect.top < window.innerHeight) bar.style.width = bar.dataset.w + '%';
+          }
+        });
+      }, 700);
+    })();
+  </script>
+</body>
+</html>
